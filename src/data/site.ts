@@ -62,7 +62,8 @@ export const siteConfig = {
   description:
     "Bovaro Real Estate is a luxury real estate agency and private property consultancy in Dubai, representing flagship developments, branded residences, and waterfront villas across Dubai, Abu Dhabi, and Ras Al Khaimah.",
   url: resolveCanonicalBaseUrl(RAW_CONFIGURED_URL),
-  defaultOgImage: "/branding/logo.png",
+  logo: "/branding/logo.png",
+  defaultOgImage: "/branding/og-image.png",
   contact: {
     phone: "+971 56 721 2983", // Official Bovaro contact line
     whatsapp: "+971 56 721 2983", // Direct Bovaro WhatsApp consultation line

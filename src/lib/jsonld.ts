@@ -21,7 +21,7 @@ export function getOrganizationJsonLd() {
     name: siteConfig.name,
     legalName: siteConfig.legalName,
     url: siteConfig.url,
-    logo: `${siteConfig.url}${siteConfig.defaultOgImage}`,
+    logo: `${siteConfig.url}${siteConfig.logo}`,
     image: `${siteConfig.url}${siteConfig.defaultOgImage}`,
     description: siteConfig.description,
     telephone: siteConfig.contact.phone,
