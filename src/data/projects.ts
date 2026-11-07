@@ -37,8 +37,8 @@ export const projects: Project[] = [
     startingPrice: "AED 19,090,000",
     priceDisplay: "AED 19.09M+",
     paymentPlanNote:
-      "Construction-linked milestone payment plan structured by Binghatti Developers through Q4 2026 completion; official unit-specific payment schedules are provided upon private registration.",
-    handoverYear: "Q4 2026",
+      "Construction-linked milestone payment plan structured by Binghatti Developers through 2027 completion; official unit-specific payment schedules are provided upon private registration.",
+    handoverYear: "2027",
     enquiryProcess:
       "Private allocations for Riviera Collection and Sky Mansion penthouses are coordinated through confidential consultation. Advisors provide the official Bugatti Residences digital brochure, floor plate schematics, and private presentation bookings in Downtown Dubai.",
     specs: {
@@ -137,8 +137,8 @@ export const projects: Project[] = [
     startingPrice: "AED 8,800,000",
     priceDisplay: "AED 8.8M+",
     paymentPlanNote:
-      "Structured off-plan construction milestone schedule managed with Binghatti Developers leading up to Q4 2026 handover; detailed milestone breakdowns are issued per residence tier.",
-    handoverYear: "Q4 2026",
+      "Structured off-plan construction milestone schedule managed with Binghatti Developers leading up to 2028 handover; detailed milestone breakdowns are issued per residence tier.",
+    handoverYear: "2028",
     enquiryProcess:
       "Prospective buyers can download the official MB-City Chrome digital brochure or request a private consultation to review Pagoda Suite, Grand Mercedes, and Triplex Penthouse floor plans and Burj Khalifa view corridors.",
     specs: {
@@ -236,8 +236,8 @@ export const projects: Project[] = [
     startingPrice: "AED 8,100,000",
     priceDisplay: "AED 8.1M+",
     paymentPlanNote:
-      "Emaar Properties phased construction-linked payment plan tied to certified building milestones through the 2027/2028 handover phases; cluster-specific schedules provided upon advisory briefing.",
-    handoverYear: "2027 / 2028 (Phased)",
+      "Emaar Properties phased construction-linked payment plan tied to certified building milestones through the 2030 handover timeline; cluster-specific schedules provided upon advisory briefing.",
+    handoverYear: "2030",
     enquiryProcess:
       "Waterfront plot selection and villa cluster comparisons at The Oasis are arranged through private advisory sessions. Contact Bovaro Real Estate to inspect master-plan maps, plot orientations, and architectural facade options.",
     specs: {
@@ -332,8 +332,8 @@ export const projects: Project[] = [
     startingPrice: "AED 2,300,000",
     priceDisplay: "AED 2.3M+",
     paymentPlanNote:
-      "Staged off-plan developer payment schedule spanning construction milestones to 2027 completion on Al Marjan Island; current release terms are provided during consultation.",
-    handoverYear: "2027",
+      "Staged off-plan developer payment schedule spanning construction milestones to 2029 completion on Al Marjan Island; current release terms are provided during consultation.",
+    handoverYear: "2029",
     enquiryProcess:
       "Investors exploring waterfront properties in Ras Al Khaimah and properties on Al Marjan Island can schedule a dedicated briefing with Bovaro Real Estate to review sea-facing orientations, floor plans, and coastal penthouse availability.",
     specs: {
@@ -431,8 +431,8 @@ export const projects: Project[] = [
     startingPrice: "AED 1,950,000",
     priceDisplay: "AED 1.95M+",
     paymentPlanNote:
-      "Sobha Realty construction-linked milestone payment plan through the 2027/2028 handover window; exact installment schedules for apartments, townhouses, and villas are shared upon enquiry.",
-    handoverYear: "2027 / 2028",
+      "Sobha Realty construction-linked milestone payment plan through the 2029 handover window; exact installment schedules for apartments, townhouses, and villas are shared upon enquiry.",
+    handoverYear: "2029",
     enquiryProcess:
       "Download the official River Cove Residences at Sobha City brochure or connect with a Bovaro Real Estate advisor to compare apartment, townhouse, and 5 to 6-bedroom villa layouts in Abu Dhabi.",
     specs: {
