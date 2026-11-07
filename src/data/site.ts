@@ -5,40 +5,40 @@
  * and canonical URL configuration for technical SEO.
  */
 
+const DEFAULT_PRODUCTION_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : "https://bovarorealestate.vercel.app";
+
 const RAW_CONFIGURED_URL =
   process.env.NEXT_PUBLIC_SITE_URL ||
   process.env.NEXT_PUBLIC_APP_URL ||
-  "https://bovarorealestate.com";
+  DEFAULT_PRODUCTION_URL;
 
 /**
  * Resolves the single canonical production base URL.
- * Ensures staging, localhost, or Vercel preview URLs (*.vercel.app) are never
- * exposed as canonical URLs in metadata or sitemaps.
+ * Uses NEXT_PUBLIC_SITE_URL / NEXT_PUBLIC_APP_URL when set, or falls back to
+ * the active production deployment URL (https://bovarorealestate.vercel.app).
  */
 function resolveCanonicalBaseUrl(rawUrl: string): string {
   const cleaned = rawUrl.trim().replace(/\/+$/, "");
   try {
     const parsed = new URL(cleaned);
     if (
-      parsed.hostname.endsWith(".vercel.app") ||
       parsed.hostname === "localhost" ||
       parsed.hostname === "127.0.0.1"
     ) {
-      return (
-        process.env.NEXT_PUBLIC_PRODUCTION_DOMAIN?.replace(/\/+$/, "") ||
-        "https://bovarorealestate.com"
-      );
+      return DEFAULT_PRODUCTION_URL;
     }
     return cleaned;
   } catch {
-    return "https://bovarorealestate.com";
+    return DEFAULT_PRODUCTION_URL;
   }
 }
 
 /**
  * Determines whether search engine indexing should be permitted.
- * Automatically blocks indexing on Vercel preview/development deployments
- * or when NEXT_PUBLIC_INDEXING_ENABLED is explicitly set to "false".
+ * Allows indexing on production deployments while keeping branch preview
+ * deployments (VERCEL_ENV === "preview") out of search indexing.
  */
 export function isProductionIndexingEnabled(): boolean {
   if (process.env.NEXT_PUBLIC_INDEXING_ENABLED === "false") {
@@ -50,9 +50,6 @@ export function isProductionIndexingEnabled(): boolean {
   const vercelEnv =
     process.env.VERCEL_ENV || process.env.NEXT_PUBLIC_VERCEL_ENV;
   if (vercelEnv && vercelEnv !== "production") {
-    return false;
-  }
-  if (RAW_CONFIGURED_URL.includes(".vercel.app")) {
     return false;
   }
   return true;
