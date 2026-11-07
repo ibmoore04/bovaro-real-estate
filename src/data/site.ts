@@ -93,6 +93,9 @@ export const siteConfig = {
   ],
   keywords: [
     "Bovaro Real Estate",
+    "Best real estate in Dubai",
+    "Best real estate company in Dubai",
+    "Best real estate agency in Dubai",
     "Real estate agency in Dubai",
     "Luxury real estate in Dubai",
     "Dubai property consultants",

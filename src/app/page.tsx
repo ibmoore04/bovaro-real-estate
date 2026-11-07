@@ -4,15 +4,40 @@ import { TopBar } from "@/components/navigation/TopBar";
 import { FloatingNavDock } from "@/components/navigation/FloatingNavDock";
 import { PropertyDiscoveryView } from "@/features/projects/components/PropertyDiscoveryView";
 import { generatePageMetadata } from "@/lib/seo";
+import { getFaqJsonLd } from "@/lib/jsonld";
+
+const homepageFaqs = [
+  {
+    question:
+      "Why choose Bovaro Real Estate for the best luxury real estate in Dubai?",
+    answer:
+      "Bovaro Real Estate operates as a discreet private property consultancy in Downtown Dubai, giving buyers direct access to flagship branded residences, waterfront mansions, and off-plan allocations including Bugatti Residences by Binghatti, Mercedes-Benz Places, The Oasis by Emaar, Oystra on Al Marjan Island, and Sobha City Abu Dhabi.",
+  },
+  {
+    question:
+      "What are the best luxury real estate developments in Dubai and the UAE?",
+    answer:
+      "Among the most sought-after luxury developments in the UAE are Bugatti Residences by Binghatti in Business Bay (from AED 19.09M, handover 2027), Mercedes-Benz Places in Downtown Dubai (from AED 8.8M, handover 2028), The Oasis by Emaar in Dubailand (from AED 8.1M, handover 2030), Oystra by Richmind on Al Marjan Island RAK (from AED 2.3M, handover 2029), and Sobha City Abu Dhabi (from AED 1.95M, handover 2029).",
+  },
+  {
+    question:
+      "How do I book a private consultation with Bovaro Real Estate in Dubai?",
+    answer:
+      "You can schedule a confidential property consultation directly via WhatsApp at +971 56 721 2983, by emailing enquiries@bovarorealestate.com, or through the acquisition request form on our Contact page.",
+  },
+];
 
 export const metadata: Metadata = generatePageMetadata({
   title:
-    "Bovaro Real Estate | Luxury Real Estate Agency & Property Consultants in Dubai",
+    "Bovaro Real Estate | Best Luxury Real Estate Agency & Property Consultants in Dubai",
   description:
-    "Bovaro Real Estate is a premier real estate agency in Dubai offering discreet property consultancy for luxury properties, branded sky mansions, and waterfront villas across Dubai, Abu Dhabi, and Ras Al Khaimah.",
+    "Discover the best real estate in Dubai with Bovaro Real Estate. Premier Dubai property consultants representing Bugatti Residences, Mercedes-Benz Places, The Oasis by Emaar, Oystra RAK, and Sobha City Abu Dhabi.",
   path: "/",
   keywords: [
     "Bovaro Real Estate",
+    "Best real estate in Dubai",
+    "Best real estate company in Dubai",
+    "Best real estate agency in Dubai",
     "Real estate agency in Dubai",
     "Luxury real estate in Dubai",
     "Dubai property consultants",
@@ -21,15 +46,25 @@ export const metadata: Metadata = generatePageMetadata({
 });
 
 export default function HomePage() {
+  const faqJsonLd = getFaqJsonLd(homepageFaqs);
+
   return (
     <div className="min-h-screen bg-pure-white flex flex-col">
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqJsonLd),
+          }}
+        />
+      )}
       <TopBar />
       <main className="flex-1">
         <PropertyDiscoveryView
           eyebrow="Bovaro Private Client Portal"
           heading="Welcome home"
-          seoSubtitle="Bovaro Real Estate: Luxury Real Estate Agency & Property Consultants in Dubai, Abu Dhabi & Ras Al Khaimah"
-          gridHeading="Signature Luxury Properties in Dubai, Ras Al Khaimah & Abu Dhabi"
+          seoSubtitle="Bovaro Real Estate: Best Luxury Real Estate in Dubai, Abu Dhabi & Ras Al Khaimah"
+          gridHeading="Best Luxury Real Estate Developments in Dubai, Ras Al Khaimah & Abu Dhabi"
         >
           {/* Server-Rendered Commercial & Advisory Context */}
           <section
@@ -119,6 +154,23 @@ export default function HomePage() {
                   </Link>
                 </div>
               </aside>
+            </div>
+
+            {/* Homepage FAQ Section matching ProjectDetailView styling */}
+            <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
+              {homepageFaqs.map((faq, index) => (
+                <article
+                  key={index}
+                  className="p-5 rounded-2xl bg-light-grey/70 border border-charcoal/6"
+                >
+                  <h3 className="text-xs sm:text-sm font-medium text-charcoal">
+                    {faq.question}
+                  </h3>
+                  <p className="mt-2 text-xs text-charcoal/70 leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </article>
+              ))}
             </div>
           </section>
         </PropertyDiscoveryView>
