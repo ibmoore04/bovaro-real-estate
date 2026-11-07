@@ -12,7 +12,9 @@ export const viewport: Viewport = {
 };
 
 const shouldIndex = isProductionIndexingEnabled();
-const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+const googleVerification =
+  process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ||
+  "EHbe9bYRxB28MLR9fzu1k_aXLy9BqFP_fYB4yg-Dxbo";
 const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
