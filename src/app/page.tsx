@@ -17,7 +17,7 @@ const homepageFaqs = [
     question:
       "What are the best luxury real estate developments in Dubai and the UAE?",
     answer:
-      "Among the most sought-after luxury developments in the UAE are Bugatti Residences by Binghatti in Business Bay (from AED 19.09M, handover 2027), Mercedes-Benz Places in Downtown Dubai (from AED 8.8M, handover 2028), The Oasis by Emaar in Dubailand (from AED 8.1M, handover 2030), Oystra by Richmind on Al Marjan Island RAK (from AED 2.3M, handover 2029), and Sobha City Abu Dhabi (from AED 1.95M, handover 2029).",
+      "Among the most sought-after luxury developments in the UAE are Bugatti Residences by Binghatti in Business Bay (from AED 19.09M, handover 2027), Mercedes-Benz Places in Downtown Dubai (from AED 2.5M, handover 2028), The Oasis by Emaar in Dubailand (from AED 8.1M, handover 2030), Oystra by Richmind on Al Marjan Island RAK (from AED 2.3M, handover 2029), and Sobha City Abu Dhabi (from AED 1.95M, handover 2029).",
   },
   {
     question:

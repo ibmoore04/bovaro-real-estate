@@ -130,21 +130,23 @@ export const projects: Project[] = [
       "Museum of the Future & DIFC Financial District",
     ],
     propertyTypes: [
+      "Studio Suites",
+      "1-Bedroom Luxury Suites",
       "2-Bedroom Suites (The Mercedes-Benz Pagoda Suite)",
       "3-Bedroom Penthouses (The Grand Mercedes Collection)",
-      "4 & 5-Bedroom Triplex and Duplex Penthouses",
+      "4-Bedroom Triplex and Duplex Penthouses",
     ],
-    startingPrice: "AED 8,800,000",
-    priceDisplay: "AED 8.8M+",
+    startingPrice: "AED 2,500,000",
+    priceDisplay: "AED 2.5M+",
     paymentPlanNote:
       "Structured off-plan construction milestone schedule managed with Binghatti Developers leading up to 2028 handover; detailed milestone breakdowns are issued per residence tier.",
     handoverYear: "2028",
     enquiryProcess:
-      "Prospective buyers can download the official MB-City Chrome digital brochure or request a private consultation to review Pagoda Suite, Grand Mercedes, and Triplex Penthouse floor plans and Burj Khalifa view corridors.",
+      "Prospective buyers can download the official MB-City Chrome digital brochure or request a private consultation to review Studio, 1 to 4-bedroom floor plans, and Burj Khalifa view corridors.",
     specs: {
-      beds: "2 – 5 Bed",
-      baths: "3 – 6 Bath",
-      area: "2,450 – 9,800 ft²",
+      beds: "Studio – 4 Bed",
+      baths: "1 – 5 Bath",
+      area: "1,100 – 9,800 ft²",
       parking: "Smart EV Valet",
       matchScore: "96% MATCH",
       propertyTypeBadge: "Branded Tower",
@@ -186,7 +188,7 @@ export const projects: Project[] = [
       {
         question: "What unit types are offered at Mercedes-Benz Places?",
         answer:
-          "The development features 2 to 5-bedroom suites, penthouses, and triplex residences, each named after iconic Mercedes-Benz heritage designs.",
+          "The development features Studio, 1, 2, 3, and 4-bedroom suites, penthouses, and triplex residences, each embodying iconic Mercedes-Benz heritage designs.",
       },
       {
         question: "How does the Mercedes-Benz brand integrate into the residences?",
