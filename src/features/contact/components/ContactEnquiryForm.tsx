@@ -28,16 +28,46 @@ export function ContactEnquiryForm() {
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
+  const projectLabels: Record<string, string> = {
+    bugatti: "Bugatti Residences by Binghatti (Business Bay)",
+    "mercedes-benz": "Mercedes-Benz Places (Downtown Dubai)",
+    "emaar-oasis": "The Oasis by Emaar (Dubailand)",
+    oystra: "Oystra by Richmind (Al Marjan Island RAK)",
+    "sobha-city": "Sobha City Abu Dhabi",
+  };
+
+  const getWhatsAppUrl = () => {
+    const selectedProjectName = projectLabels[project] || "General Luxury Portfolio";
+    const text = [
+      `*New Acquisition Enquiry — Bovaro Real Estate*`,
+      ``,
+      `• *Client Name:* ${name.trim()}`,
+      `• *Phone:* ${phone.trim()}`,
+      `• *Email:* ${email.trim()}`,
+      `• *Development of Interest:* ${selectedProjectName}`,
+      message.trim() ? `• *Requirements:* ${message.trim()}` : "",
+      ``,
+      `_Submitted via Bovaro Real Estate Contact Portal_`,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    const cleanNumber = siteConfig.contact.whatsapp.replace(/\D/g, "");
+    return `https://wa.me/${cleanNumber}?text=${encodeURIComponent(text)}`;
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const targetProject = project || "general";
     trackEnquirySubmit(targetProject, "general_enquiry", "organic_search");
+    trackWhatsAppClick(targetProject, "contact_page");
+
+    // Immediately open WhatsApp with the complete pre-composed enquiry
+    const whatsappUrl = getWhatsAppUrl();
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+
     setSubmitted(true);
   };
-
-  const whatsappFollowupText = encodeURIComponent(
-    `Hello Bovaro Real Estate, my name is ${name}. I have submitted a confidential enquiry regarding ${project || "your luxury portfolio"}. ${message ? `Details: ${message}` : ""}`
-  );
 
   if (submitted) {
     return (
@@ -51,18 +81,18 @@ export function ContactEnquiryForm() {
             <Check className="w-4 h-4" />
           </span>
           <h3 className="text-sm font-semibold text-charcoal">
-            Confidential Enquiry Recorded
+            Enquiry Prepared for WhatsApp Dispatch
           </h3>
         </div>
         <p className="text-xs text-charcoal/75 leading-relaxed">
-          Thank you, {name}. A Bovaro Senior Property Advisor has been assigned
-          to review your requirements and will respond via your preferred
-          channel. For immediate priority assistance, you may also open a direct
-          WhatsApp briefing below.
+          Thank you, {name}. Your confidential acquisition enquiry has been
+          opened directly in WhatsApp to connect with a Bovaro Senior Property
+          Advisor. If your WhatsApp window did not open automatically, click
+          the button below:
         </p>
         <div className="flex flex-wrap gap-2.5 pt-1">
           <a
-            href={`https://wa.me/${siteConfig.contact.whatsapp.replace(/\D/g, "")}?text=${whatsappFollowupText}`}
+            href={getWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() =>
@@ -70,7 +100,7 @@ export function ContactEnquiryForm() {
             }
             className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-deep-emerald hover:bg-dark-emerald text-pure-white text-xs font-semibold transition-colors"
           >
-            <span>Continue on WhatsApp</span>
+            <span>Open WhatsApp Chat Directly</span>
             <ArrowUpRight className="w-3.5 h-3.5 text-soft-gold" />
           </a>
           <button
@@ -79,7 +109,7 @@ export function ContactEnquiryForm() {
               setSubmitted(false);
               setMessage("");
             }}
-            className="px-4 py-2.5 rounded-full bg-pure-white border border-charcoal/15 text-xs font-medium text-charcoal hover:bg-light-grey transition-colors"
+            className="px-4 py-2.5 rounded-full bg-pure-white border border-charcoal/15 text-xs font-medium text-charcoal hover:bg-light-grey transition-colors cursor-pointer"
           >
             Submit Another Request
           </button>
